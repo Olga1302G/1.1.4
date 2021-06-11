@@ -39,7 +39,7 @@ public class UserDaoHibernateImpl1 implements UserDao {
             transaction.commit();
             session.close();
 
-            System.out.println("Таблица готова");
+            //System.out.println("Таблица готова");
         } catch (Exception e) {
 
         }
@@ -55,7 +55,7 @@ public class UserDaoHibernateImpl1 implements UserDao {
             transaction.commit();
             session.close();
 
-            System.out.println("Table delete");
+            //System.out.println("Table delete");
         } catch (Exception e) {
             System.out.println("Error");
         }
@@ -72,7 +72,7 @@ public class UserDaoHibernateImpl1 implements UserDao {
             session.saveOrUpdate(new User(name, lastName, age));
             transaction.commit();
         }
-        System.out.println("User " + name + " created");
+        System.out.println("User " + name + " создан");
 
     }
 
@@ -97,7 +97,7 @@ public class UserDaoHibernateImpl1 implements UserDao {
 
             userList = (List<User>) session.createQuery("From User").list();
 
-            System.out.println("List created");
+            //System.out.println("List created");
 
         }
         for (int i = 0; i < userList.size(); i++) {
@@ -111,8 +111,8 @@ public class UserDaoHibernateImpl1 implements UserDao {
         try (Session session = sessionFactory.openSession()){
 
             Transaction transaction = session.beginTransaction();
-            String HQL = "DELETE User";
-            session.createQuery(HQL).executeUpdate();
+            String del = "DELETE User";
+            session.createQuery(del).executeUpdate();
 
 
         } catch (Exception e) {
