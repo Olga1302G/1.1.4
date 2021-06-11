@@ -18,7 +18,7 @@ public class UtilHibernate {
         if (sessionFactory == null) {
             try {
                 Properties properties = new Properties();
-                //properties.put(Environment.DIALECT, "org.hibernate.dialect.MySQLDialect");
+                
                 properties.put(Environment.URL, "jdbc:mysql://localhost:3306/mysql?autoReconnect=true&useSSL=false");
                 properties.put(Environment.USER, "root");
                 properties.put(Environment.PASS, "root");
@@ -26,7 +26,7 @@ public class UtilHibernate {
                 properties.put(Environment.HBM2DDL_AUTO, "update");
                 properties.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
                 properties.put(Environment.SHOW_SQL, "true");
-                // properties.put(Environment.C3P0_IDLE_TEST_PERIOD, "true");
+                
 
 
                 Configuration configuration = new Configuration().setProperties(properties);
