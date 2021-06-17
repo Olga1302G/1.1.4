@@ -37,11 +37,13 @@ public class UserDaoHibernateImpl1 implements UserDao {
 
             session.createSQLQuery(sql).executeUpdate();
             transaction.commit();
-            session.close();
+            
 
             //System.out.println("Таблица готова");
         } catch (Exception e) {
 
+        } finally {
+            session.close();
         }
 
 
@@ -53,11 +55,13 @@ public class UserDaoHibernateImpl1 implements UserDao {
             Transaction transaction = session.beginTransaction();
             session.createSQLQuery("DROP TABLE  IF EXISTS userTable").executeUpdate();;
             transaction.commit();
-            session.close();
+            
 
             //System.out.println("Table delete");
         } catch (Exception e) {
             System.out.println("Error");
+        } finally {
+            session.close();
         }
 
 
@@ -117,8 +121,9 @@ public class UserDaoHibernateImpl1 implements UserDao {
 
         } catch (Exception e) {
 
+        } finally {
+            session.close();
         }
-
 
     }
 }
